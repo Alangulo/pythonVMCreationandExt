@@ -198,7 +198,7 @@ def get_vm(compute_client):
         print("  code: ", stat.code)
         print("  displayStatus: ", stat.display_status)
 
-def addExtension(resource_group_name,namevm,ext_name,ext_parameters):
+def addExtension(resource_group_name,namevm,ext_name,ext_parameters,compute_client):
    
     
     extAdding=compute_client.virtual_machine_extensions.create_or_update(resource_group_name,namevm,ext_name,parameters)
@@ -258,4 +258,4 @@ if __name__ == "__main__":
         'type_handler_version':'1.2'
         
         }
-    addExtension(GROUP_NAME,VM_NAME,"NvidiaGpuDriverWindows",ext_parameters)
+    addExtension(GROUP_NAME,VM_NAME,"NvidiaGpuDriverWindows",ext_parameters,compute_client)
